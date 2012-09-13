@@ -1,0 +1,9 @@
+
+out/
+*.log
+classes/
+*.iml
+target/
+.idea/
+#ignore thumbnails created by windows
+Thumbs.db
