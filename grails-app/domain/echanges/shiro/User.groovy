@@ -1,10 +1,10 @@
 package echanges.shiro
 
 class User {
-
     String mail
     String username
     String passwordHash
+    byte[] passwordSalt
     Communaute communaute
 
     static hasMany = [
@@ -13,6 +13,7 @@ class User {
 
     static constraints = {
         username(nullable: false)
-        mail(nullable: false, blank: false, unique: true)
+        mail(nullable: false, blank: false, unique: true, email: true)
+        communaute(nullable: true)
     }
 }

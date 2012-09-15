@@ -1,4 +1,9 @@
-import echanges.shiro.*
+import echanges.shiro.Communaute
+import echanges.shiro.Role
+import echanges.shiro.RoleName
+import echanges.shiro.User
+import org.apache.shiro.crypto.SecureRandomNumberGenerator
+import org.apache.shiro.crypto.hash.Sha512Hash
 
 class BootStrap {
 
@@ -11,10 +16,25 @@ class BootStrap {
 
         def archamps = Communaute.findByNom("archamps")?: new Communaute(nom: "archamps").save(failOnError: true)
 
+        def passwordSalt = new SecureRandomNumberGenerator().nextBytes().getBytes()
 
-        def gaetan = User.findByMail("g.zoritchak@gmail.com")?: new User(mail: "g.zoritchak@gmail.com").save(failOnError: true)
-        if(!archamps.id == gaetan.communaute?.id){ gaetan.communaute = archamps; }
-        if(!gaetan.roles.contains(superUserRole)){ gaetan.addToRoles(superUserRole); }
+        User.findByMail("g.zoritchak@gmail.com")?:
+            new User(mail: "g.zoritchak@gmail.com",
+                    username: "Gaetan",
+                    passwordHash: new Sha512Hash("password",passwordSalt,1024).toBase64(),
+                    passwordSalt: passwordSalt)
+                    .addToRoles(superUserRole)
+                    .save(failOnError: true)
+
+        // Create an standard user
+        User.findByUsername('joe') ?:
+            new User(mail: 'joe@yopmail.com',
+                    username: "joe",
+                    passwordHash: new Sha512Hash("password",passwordSalt,1024).toBase64(),
+                    passwordSalt:passwordSalt)
+                    .addToRoles(membre)
+                    .save(flush: true, failOnError: true)
+
     }
     def destroy = {
     }
