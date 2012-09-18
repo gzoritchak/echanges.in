@@ -5,7 +5,20 @@ class User {
     String username
     String passwordHash
     byte[] passwordSalt
+
     Communaute communaute
+
+    void setCommunaute(Communaute newCommunaute){
+        if (communaute != null){
+            def oldPermission = permissions.find {item->
+                item.id = communaute.id
+            }
+            removeFromPermissions(oldPermission)
+        }
+        communaute = newCommunaute
+        if(communaute != null)
+            addToPermissions(new CommunautePermission(communaute: newCommunaute))
+    }
 
     static hasMany = [
             roles: Role,

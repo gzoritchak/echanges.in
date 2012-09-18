@@ -21,19 +21,29 @@ class BootStrap {
         User.findByMail("g.zoritchak@gmail.com")?:
             new User(mail: "g.zoritchak@gmail.com",
                     username: "Gaetan",
-                    passwordHash: new Sha512Hash("password",passwordSalt,1024).toBase64(),
+                    passwordHash: new Sha512Hash("pass",passwordSalt,1024).toBase64(),
                     passwordSalt: passwordSalt)
                     .addToRoles(superUserRole)
                     .save(failOnError: true)
 
-        // Create an standard user
-        User.findByUsername('joe') ?:
-            new User(mail: 'joe@yopmail.com',
-                    username: "joe",
-                    passwordHash: new Sha512Hash("password",passwordSalt,1024).toBase64(),
+        def nath = User.findByMail('nath@yopmail.com') ?:
+            new User(mail: 'nath@yopmail.com',
+                    username: "nath",
+                    passwordHash: new Sha512Hash("pass",passwordSalt,1024).toBase64(),
                     passwordSalt:passwordSalt)
                     .addToRoles(membre)
-                    .save(flush: true, failOnError: true)
+                    .addToRoles(adminRole)
+        nath.communaute = archamps
+        nath.save(flush: true, failOnError: true)
+
+        def joe = User.findByMail('joe@yopmail.com') ?:
+            new User(mail: 'joe@yopmail.com',
+                    username: "joe",
+                    passwordHash: new Sha512Hash("pass",passwordSalt,1024).toBase64(),
+                    passwordSalt:passwordSalt)
+                    .addToRoles(membre)
+        joe.communaute = archamps
+        joe.save(flush: true, failOnError: true)
 
     }
     def destroy = {
