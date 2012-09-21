@@ -68,8 +68,9 @@ class Permission implements org.apache.shiro.authz.Permission{
             }
 
             //Si la communauté est positionnée dans la permission recherchée, on vérifie qu'elles correspondent.
+            //la vérification est réalisée par le nom, puisqu'il sera systématiquement présent dans les URLs.
             if (perm.communaute)
-                if (communaute && !communaute.id.equals(perm.communaute.id)) return false
+                if (communaute && !communaute.nom.equals(perm.communaute.nom)) return false
 
             return true
 

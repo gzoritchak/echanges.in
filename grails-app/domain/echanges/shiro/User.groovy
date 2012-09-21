@@ -8,21 +8,16 @@ class User {
 
     Communaute communaute
 
-    void setCommunaute(Communaute newCommunaute){
-        if (communaute != null){
-            def oldPermission = permissions.find {item->
-                item.id = communaute.id
-            }
-            removeFromPermissions(oldPermission)
-        }
-        communaute = newCommunaute
-        if(communaute != null)
-            addToPermissions(new CommunautePermission(communaute: newCommunaute))
+    /**
+     * @return toutes les permissions de l'utilisateurs, qu'elles aient été attribuées unitairement ou via
+     * le regroupement d'un rôle.
+     *
+     * Pour le moment la notion de rôle n'est pas encore implémentée.
+     */
+    Set<Permission> getPermissions(){
+        return UserPermission.findAllByUser(this).collect {it.permission} as Set
     }
 
-    static hasMany = [
-            roles: Role,
-            permissions: Permission ]
 
     static constraints = {
         username(nullable: false)
