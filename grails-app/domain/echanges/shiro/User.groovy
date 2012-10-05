@@ -9,7 +9,7 @@ class User {
     Communaute communaute
 
     /**
-     * @return toutes les permissions de l'utilisateurs, qu'elles aient été attribuées unitairement ou via
+     * @return toutes les permissions de l'utilisateur, qu'elles aient été attribuées unitairement ou via
      * le regroupement d'un rôle.
      *
      * Pour le moment la notion de rôle n'est pas encore implémentée.

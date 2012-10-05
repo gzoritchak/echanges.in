@@ -1,24 +1,34 @@
-import echanges.shiro.RoleName
+
 import echanges.shiro.User
 import org.apache.shiro.authc.AccountException
 import org.apache.shiro.authc.IncorrectCredentialsException
 import org.apache.shiro.authc.SimpleAccount
 import org.apache.shiro.authc.UnknownAccountException
 
+/**
+ * Classe centralisant les fonctions de vérification de la sécurité dont l'authentification
+ * et la vérification des droits (permissions)
+ */
 class ShiroDbRealm {
 
     static authTokenClass = org.apache.shiro.authc.UsernamePasswordToken
 
     def credentialMatcher
+
     def shiroPermissionResolver
 
+    /**
+     * Authentification de l'utilisateur, via login (email) et mot de passe.
+     * @param authToken
+     * @return
+     */
     def authenticate(authToken) {
         log.info "Attempting to authenticate ${authToken.username} in DB realm..."
         def username = authToken.username
 
         // Null username is invalid
         if (username == null) {
-            throw new AccountException("Null usernames are not allowed by this realm.")
+            throw new AccountException("Il doit y avoir un login (email) pour réaliser l'authentification.")
         }
 
         def user = User.findByMail(username)
@@ -28,9 +38,8 @@ class ShiroDbRealm {
 
         log.info "Found user '${user.username}' in DB"
 
-        // Now check the user's password against the hashed value stored
-        // in the database.
-        def account = new SimpleAccount(username,user.passwordHash,new org.apache.shiro.util.SimpleByteSource(user.passwordSalt),"ShiroDbRealm")
+        def account = new SimpleAccount(username,user.passwordHash,
+                new org.apache.shiro.util.SimpleByteSource(user.passwordSalt),"ShiroDbRealm")
 //        def account = new SimpleAccount(username, user.passwordHash, "ShiroDbRealm")
         if (!credentialMatcher.doCredentialsMatch(authToken, account)) {
             log.info "Invalid password (DB realm)"
@@ -40,16 +49,12 @@ class ShiroDbRealm {
         return account
     }
 
-    def hasRole(principal, roleName) {
-        def user = User.findByMail(principal, [fetch:[roles:'join']])
-        return user.roles.any {it.name == RoleName.valueOf(roleName)}
-    }
-
-    def hasAllRoles(principal, roles) {
-        def user = User.findByMail(principal, [fetch:[roles:'join']])
-        return user.roles.size() == RoleName.values().size()
-    }
-
+    /**
+     * Vérification des droits : l'utilisateur dispose-t-il de la permission nécessaire?
+     * @param principal
+     * @param requiredPermission
+     * @return
+     */
     def isPermitted(principal, requiredPermission) {
 
         if (requiredPermission instanceof echanges.shiro.Permission){

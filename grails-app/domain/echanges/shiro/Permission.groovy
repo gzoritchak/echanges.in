@@ -63,8 +63,8 @@ class Permission implements org.apache.shiro.authz.Permission{
             if (!accessType.equals(AccessType.ADMIN) && !accessType.equals(perm.accessType))return false
 
             //si l'id est positionné, on vérifie qu'ils correspondent
-            if (perm.id) {
-                if (id && !id.equals(perm.id)) return false
+            if (perm.id && id) {
+                if (!id.equals(perm.id)) return false
             }
 
             //Si la communauté est positionnée dans la permission recherchée, on vérifie qu'elles correspondent.

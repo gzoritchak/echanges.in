@@ -16,7 +16,8 @@ class UserService {
             Permission.executeQuery(
                     '''from UserPermission up
                         where up.user= :user
-                        and up.permission.communaute = :communaute''', [user:user, communaute: communaute])
+                        and up.permission.communaute = :communaute''',
+                    [user:user, communaute: communaute])
             .each {it.delete()}
         }
 
