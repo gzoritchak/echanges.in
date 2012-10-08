@@ -17,7 +17,7 @@ class PermissionTests {
         def collonges = new Communaute(id: 2L, nom: 'Collonges').save()
 
         //Un administrateur à le droit de création sur le domaine Book de la communauté d'Archamps
-        def admin = new Permission(domain: '*', accessType: AccessType.ADMIN )
+        def admin = new Permission(domain: '*', accessType: AccessType.ADMIN ).save()
         println admin.implies(new Permission(domain:'Book', accessType: AccessType.CREATE, id: 123L, communaute: archamps))
 
         //Un utilisateur anonyme ne peut ni lire, ni créer, ni modifier, ni supprimer un objet de type Book de la communauté d'Archamps

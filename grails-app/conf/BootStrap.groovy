@@ -1,28 +1,41 @@
 import echanges.shiro.Communaute
+import echanges.shiro.Permission
 import echanges.shiro.User
+import echanges.shiro.UserPermission
 import org.apache.shiro.crypto.SecureRandomNumberGenerator
 import org.apache.shiro.crypto.hash.Sha512Hash
+import echanges.shiro.AccessType
 
+/**
+ * Initialisation des données du site pour les tests. Création de certains utilisateurs, de communauté et affectation des
+ * permissions aux utilisateurs.
+ */
 class BootStrap {
 
-    def init = { servletContext ->
+    def shiroSecurityService
 
-//        def superUserRole = Role.findByName(RoleName.SUPER_USER)?: new Role(name: RoleName.SUPER_USER).save(failOnError: true)
-//        def adminRole = Role.findByName(RoleName.ADMIN)?: new Role(name: RoleName.ADMIN).save(failOnError: true)
-//        def auteurRole = Role.findByName(RoleName.AUTEUR)?: new Role(name: RoleName.AUTEUR).save(failOnError: true)
-//        def membre = Role.findByName(RoleName.MEMBRE)?: new Role(name: RoleName.MEMBRE).save(failOnError: true)
+    def init = { servletContext ->
 
         def archamps = Communaute.findByNom("archamps")?: new Communaute(nom: "archamps").save(failOnError: true)
 
         def passwordSalt = new SecureRandomNumberGenerator().nextBytes().getBytes()
 
-        User.findByMail("g.zoritchak@gmail.com")?:
+        def admin = User.findByMail("g.zoritchak@gmail.com")?:
             new User(mail: "g.zoritchak@gmail.com",
                     username: "Gaetan",
                     passwordHash: new Sha512Hash("pass",passwordSalt,1024).toBase64(),
                     passwordSalt: passwordSalt)
-//                    .addToRoles(superUserRole)
                     .save(failOnError: true)
+
+        Permission superPermission = Permission.findByCommunauteAndAccessTypeAndDomainAndCommunaute(
+                null, AccessType.ADMIN, '*', null)?: new Permission(accessType: AccessType.ADMIN, domain: '*')
+                .save(failOnError: true, flush: true)
+
+
+        //le cas échéant, on affecte la permission à l'utilisateur
+        UserPermission.findByUserAndPermission(admin, superPermission)?:
+            new UserPermission(user: admin, permission: superPermission)
+                    .save(failOnError: true, flush: true)
 
         def nath = User.findByMail('nath@yopmail.com') ?:
             new User(mail: 'nath@yopmail.com',

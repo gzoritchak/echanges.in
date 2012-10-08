@@ -1,4 +1,3 @@
-
 import echanges.shiro.User
 import org.apache.shiro.authc.AccountException
 import org.apache.shiro.authc.IncorrectCredentialsException
@@ -38,8 +37,8 @@ class ShiroDbRealm {
 
         log.info "Found user '${user.username}' in DB"
 
-        def account = new SimpleAccount(username,user.passwordHash,
-                new org.apache.shiro.util.SimpleByteSource(user.passwordSalt),"ShiroDbRealm")
+        def account = new SimpleAccount(username, user.passwordHash,
+                new org.apache.shiro.util.SimpleByteSource(user.passwordSalt), "ShiroDbRealm")
 //        def account = new SimpleAccount(username, user.passwordHash, "ShiroDbRealm")
         if (!credentialMatcher.doCredentialsMatch(authToken, account)) {
             log.info "Invalid password (DB realm)"
@@ -51,23 +50,19 @@ class ShiroDbRealm {
 
     /**
      * Vérification des droits : l'utilisateur dispose-t-il de la permission nécessaire?
-     * @param principal
-     * @param requiredPermission
+     * @param principal le login de l'utilisateur en cours
+     * @param requiredPermission la permission recherchée.
      * @return
      */
     def isPermitted(principal, requiredPermission) {
 
-        if (requiredPermission instanceof echanges.shiro.Permission){
-            def permissions = echanges.shiro.Permission.withCriteria{
-                user{
-                    eq('mail', principal)
-                }
-            }
-            return permissions.any{permission ->
+        if (requiredPermission instanceof echanges.shiro.Permission) {
+            def User user = User.findByMail(principal)
+            return user.permissions.any {permission ->
                 permission.implies(requiredPermission)
             }
-        }else{
-            return true
+        } else {
+            return false
         }
     }
 }

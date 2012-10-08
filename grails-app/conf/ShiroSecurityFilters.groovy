@@ -1,4 +1,7 @@
-import echanges.shiro.RoleName
+import echanges.shiro.AccessType
+import echanges.shiro.Permission
+import org.apache.shiro.SecurityUtils
+import org.apache.shiro.subject.Subject
 
 /**
  * This filters class protects all URLs via access control by convention.
@@ -12,7 +15,7 @@ class ShiroSecurityFilters {
         adminGeneral(controller:"admin"){
             before = {
                 accessControl{
-                    role(RoleName.SUPER_USER.name())
+                    SecurityUtils.subject.isPermitted(new Permission(accessType: AccessType.ADMIN, domain: '*'))
                 }
             }
         }

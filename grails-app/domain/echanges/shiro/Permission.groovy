@@ -3,8 +3,9 @@ package echanges.shiro
 /**
  * Les permissions d'échanges In.
  *
- * Une permission est définie par un type de domain (Agenda, Blog, ...) et par un type d'accès. On
- *
+ * Une permission est définie par un type d'objet domain (Agenda, Blog, ...) et par un type d'accès. On peut également
+ * préciser l'instance sur lequel cette permission porte en indiquant l'id. Ainsi, un utilisateur peut avoir un accès
+ * ADMIN sur l'objet domain User correspondant à lui-même et n'avoir accès aux autres instances qu'en mode READ_ANOM.
  */
 class Permission implements org.apache.shiro.authz.Permission{
 
@@ -14,7 +15,7 @@ class Permission implements org.apache.shiro.authz.Permission{
      * Le wildcard est essentiellement utilisé pour les administrateurs qui peuvent accéder à tous les types
      * d'entité.
      *
-     * le domain est case insensitive.
+     * Le domain est case sensitive.
      */
     String domain
 
@@ -43,6 +44,7 @@ class Permission implements org.apache.shiro.authz.Permission{
     static constraints = {
         domain(nullable: false)
         accessType(nullable: false)
+        communaute(nullable: true)
     }
 
     /**
@@ -76,5 +78,29 @@ class Permission implements org.apache.shiro.authz.Permission{
 
         }
         return false
+    }
+
+    /**
+     * L'id et la version sont volontairement exclu de l'évaluation de l'égalité.
+     */
+    boolean equals(o) {
+        if (this.is(o)) return true
+        if (getClass() != o.class) return false
+
+        Permission that = (Permission) o
+
+        if (accessType != that.accessType) return false
+        if (communaute != that.communaute) return false
+        if (domain != that.domain) return false
+
+        return true
+    }
+
+    int hashCode() {
+        int result
+        result = domain.hashCode()
+        result = 31 * result + (communaute != null ? communaute.hashCode() : 0)
+        result = 31 * result + accessType.hashCode()
+        return result
     }
 }
