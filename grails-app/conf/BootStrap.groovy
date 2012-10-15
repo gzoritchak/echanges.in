@@ -1,10 +1,10 @@
-import echanges.shiro.Communaute
-import echanges.shiro.Permission
-import echanges.shiro.User
-import echanges.shiro.UserPermission
+import org.echangesin.Communaute
+import org.echangesin.Permission
+import org.echangesin.User
+import org.echangesin.UserPermission
 import org.apache.shiro.crypto.SecureRandomNumberGenerator
 import org.apache.shiro.crypto.hash.Sha512Hash
-import echanges.shiro.AccessType
+import org.echangesin.AccessType
 
 /**
  * Initialisation des données du site pour les tests. Création de certains utilisateurs, de communauté et affectation des

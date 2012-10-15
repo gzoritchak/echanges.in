@@ -1,5 +1,5 @@
-import echanges.shiro.AccessType
-import echanges.shiro.Permission
+import org.echangesin.AccessType
+import org.echangesin.Permission
 import org.apache.shiro.SecurityUtils
 import org.apache.shiro.subject.Subject
 

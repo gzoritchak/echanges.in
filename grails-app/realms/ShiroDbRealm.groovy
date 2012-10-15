@@ -1,4 +1,4 @@
-import echanges.shiro.User
+import org.echangesin.User
 import org.apache.shiro.authc.AccountException
 import org.apache.shiro.authc.IncorrectCredentialsException
 import org.apache.shiro.authc.SimpleAccount
@@ -56,7 +56,7 @@ class ShiroDbRealm {
      */
     def isPermitted(principal, requiredPermission) {
 
-        if (requiredPermission instanceof echanges.shiro.Permission) {
+        if (requiredPermission instanceof org.echangesin.Permission) {
             def User user = User.findByMail(principal)
             return user.permissions.any {permission ->
                 permission.implies(requiredPermission)

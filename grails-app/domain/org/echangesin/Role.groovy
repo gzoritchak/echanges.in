@@ -1,4 +1,4 @@
-package echanges.shiro
+package org.echangesin
 
 class Role {
 

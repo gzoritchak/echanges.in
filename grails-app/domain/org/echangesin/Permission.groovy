@@ -1,4 +1,4 @@
-package echanges.shiro
+package org.echangesin
 
 /**
  * Les permissions d'échanges In.

@@ -1,4 +1,4 @@
-package echanges.shiro
+package org.echangesin
 
 import grails.test.mixin.TestFor
 import grails.test.mixin.TestMixin
