@@ -11,6 +11,9 @@ import grails.test.mixin.*
 class UserTests {
 
     void testSomething() {
-       fail "Implement me"
+        def user = new User()
+        assertFalse user.validate()
+
+        user.mail
     }
 }

@@ -20,7 +20,7 @@ class User {
 
 
     static constraints = {
-        username(nullable: false)
+        username(nullable: false, blank: false)
         mail(nullable: false, blank: false, unique: true, email: true)
         communaute(nullable: true)
     }
