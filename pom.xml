@@ -29,8 +29,13 @@
             <version>${grails.version}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.grails</groupId>
+            <artifactId>grails-test</artifactId>
+            <version>${grails.version}</version>
+            <scope>test</scope>
+        </dependency>
 
-        
 
         <dependency>
             <groupId>org.grails.plugins</groupId>
@@ -40,75 +45,75 @@
             <type>zip</type>
         </dependency>
 
-        
-    <dependency>
-        <groupId>org.grails.plugins</groupId>
-        <artifactId>cache</artifactId>
-        <version>1.0.0</version>
-        <scope>compile</scope>
-        <type>zip</type>
-    </dependency>
-                    
 
-    <dependency>
-        <groupId>org.grails.plugins</groupId>
-        <artifactId>resources</artifactId>
-        <version>1.1.6</version>
-        <scope>runtime</scope>
-        <type>zip</type>
-    </dependency>
-                    
+        <dependency>
+            <groupId>org.grails.plugins</groupId>
+            <artifactId>cache</artifactId>
+            <version>1.0.0</version>
+            <scope>compile</scope>
+            <type>zip</type>
+        </dependency>
 
-    <dependency>
-        <groupId>org.grails.plugins</groupId>
-        <artifactId>shiro</artifactId>
-        <version>1.1.4</version>
-        <scope>runtime</scope>
-        <type>zip</type>
-    </dependency>
-                    
 
-    <dependency>
-        <groupId>org.grails.plugins</groupId>
-        <artifactId>database-migration</artifactId>
-        <version>1.1</version>
-        <scope>runtime</scope>
-        <type>zip</type>
-    </dependency>
-                    
+        <dependency>
+            <groupId>org.grails.plugins</groupId>
+            <artifactId>resources</artifactId>
+            <version>1.1.6</version>
+            <scope>runtime</scope>
+            <type>zip</type>
+        </dependency>
 
-    <dependency>
-        <groupId>org.grails.plugins</groupId>
-        <artifactId>jquery</artifactId>
-        <version>1.8.0</version>
-        <scope>runtime</scope>
-        <type>zip</type>
-    </dependency>
-                    
 
-    <dependency>
-        <groupId>org.grails.plugins</groupId>
-        <artifactId>hibernate</artifactId>
-        <version>2.1.1</version>
-        <scope>runtime</scope>
-        <type>zip</type>
-    </dependency>
-                    
+        <dependency>
+            <groupId>org.grails.plugins</groupId>
+            <artifactId>shiro</artifactId>
+            <version>1.1.4</version>
+            <scope>runtime</scope>
+            <type>zip</type>
+        </dependency>
 
-    <dependency>
-        <groupId>org.grails.plugins</groupId>
-        <artifactId>webxml</artifactId>
-        <version>1.4.1</version>
-        <scope>provided</scope>
-        <type>zip</type>
-    </dependency>
-                    
+
+        <dependency>
+            <groupId>org.grails.plugins</groupId>
+            <artifactId>database-migration</artifactId>
+            <version>1.1</version>
+            <scope>runtime</scope>
+            <type>zip</type>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.grails.plugins</groupId>
+            <artifactId>jquery</artifactId>
+            <version>1.8.0</version>
+            <scope>runtime</scope>
+            <type>zip</type>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.grails.plugins</groupId>
+            <artifactId>hibernate</artifactId>
+            <version>2.1.1</version>
+            <scope>runtime</scope>
+            <type>zip</type>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.grails.plugins</groupId>
+            <artifactId>webxml</artifactId>
+            <version>1.4.1</version>
+            <scope>provided</scope>
+            <type>zip</type>
+        </dependency>
+
 
 
     </dependencies>
 
     <build>
-        <pluginManagement />
+        <pluginManagement/>
 
         <plugins>
             <!-- Disables the Maven surefire plugin for Grails applications, as we have our own test runner -->
