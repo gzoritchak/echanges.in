@@ -24,4 +24,7 @@ class User {
         mail(nullable: false, blank: false, unique: true, email: true)
         communaute(nullable: true)
     }
+    static mapping = {
+        table("ech_user")  //user est un mot clef de postgres -> nécessité de prendre un autre nom de table
+    }
 }
