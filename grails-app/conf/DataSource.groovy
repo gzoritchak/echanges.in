@@ -13,24 +13,27 @@ hibernate {
 environments {
     development {
         dataSource {
-            dbCreate = "create-drop"
+            dbCreate = "update"
             driverClassName = "org.postgresql.Driver"
             url = "jdbc:postgresql://localhost:5432/echangesin"
-//            username = "echangesin"
-//            password = "echangesin"
+            hibernate.default_schema = "public"
+            dialect = org.hibernate.dialect.PostgreSQLDialect
+            pooled = true
             }
     }
     test {
         dataSource {
-            dbCreate = "update"
-            url = "jdbc:h2:mem:testDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
+            dbCreate = "create-drop"
+            hibernate.default_schema = "public"
+            dialect = org.hibernate.dialect.PostgreSQLDialect
+            pooled = true
         }
     }
     production {
         dataSource {
             dbCreate = "update"
             driverClassName = "org.postgresql.Driver"
-            url = "jdbc:postgresql://localhost:5432/echanges"
+            url = "jdbc:postgresql://localhost:5432/echangesin"
             hibernate.default_schema = "public"
             dialect = org.hibernate.dialect.PostgreSQLDialect
             pooled = true
