@@ -37,15 +37,15 @@ class BootStrap {
             new UserPermission(user: admin, permission: superPermission)
                     .save(failOnError: true, flush: true)
 
-        def nath = User.findByMail('nath@yopmail.com') ?:
+        def agnes = User.findByMail('agnes.crepet@gmail.com') ?:
             new User(mail: 'nath@yopmail.com',
                     username: "nath",
                     passwordHash: new Sha512Hash("pass",passwordSalt,1024).toBase64(),
                     passwordSalt:passwordSalt)
 //                    .addToRoles(membre)
 //                    .addToRoles(adminRole)
-        nath.communaute = archamps
-        nath.save(flush: true, failOnError: true)
+        agnes.communaute = archamps
+        agnes.save(flush: true, failOnError: true)
 
         def joe = User.findByMail('joe@yopmail.com') ?:
             new User(mail: 'joe@yopmail.com',
