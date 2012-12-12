@@ -225,11 +225,11 @@
                                 <id>tomcat-deploy-copy</id>
                                 <configuration>
                                     <tasks>
-                                        <cp todir="/home/teamcity/deployer">
+                                        <copy todir="/home/teamcity/deployer">
                                             <fileset dir="${project.build.directory}">
                                                 <include name="*.war"/>
                                             </fileset>
-                                        </cp>
+                                        </copy>
                                         <touch file="/home/teamcity/cmd/deployer"/>
                                     </tasks>
                                 </configuration>
