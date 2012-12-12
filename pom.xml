@@ -117,10 +117,11 @@
         </dependency>
 
 
-
     </dependencies>
 
     <build>
+        <finalName>ROOT</finalName>
+
         <pluginManagement/>
 
         <plugins>
@@ -206,5 +207,38 @@
                 </dependency>
             </dependencies>
         </profile>
+        <profile>
+            <id>remote</id>
+            <activation>
+                <property>
+                    <name>install</name>
+                    <value>remote</value>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>tomcat-deploy-copy</id>
+                                <configuration>
+                                    <tasks>
+                                        <cp file="target/ROOT.war" todir="/home/teamcity/deployer"/>
+                                        <touch file="/home/teamcity/cmd/deployer"/>
+                                    </tasks>
+                                </configuration>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                                <phase>install</phase>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
     </profiles>
+
 </project>
