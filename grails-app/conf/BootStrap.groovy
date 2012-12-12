@@ -38,8 +38,8 @@ class BootStrap {
                     .save(failOnError: true, flush: true)
 
         def agnes = User.findByMail('agnes.crepet@gmail.com') ?:
-            new User(mail: 'nath@yopmail.com',
-                    username: "nath",
+            new User(mail: 'agnes.crepet@gmail.com',
+                    username: "agnes",
                     passwordHash: new Sha512Hash("pass",passwordSalt,1024).toBase64(),
                     passwordSalt:passwordSalt)
 //                    .addToRoles(membre)
