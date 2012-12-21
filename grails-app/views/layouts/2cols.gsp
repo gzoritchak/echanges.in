@@ -27,7 +27,7 @@
                 </div>
                 <div id="user-box" class="span5">
                     <ul class="nav navbar pull-right">
-                        <shiro:isNotLoggedIn><a >Se connecter</a></shiro:isNotLoggedIn>
+                        <shiro:isNotLoggedIn><li><a href="${createLink(controller:'auth')}">Se connecter</a></li></shiro:isNotLoggedIn>
                         <shiro:isLoggedIn>
                             <li class="dropdown">
                                 <a href="#" id="drop3" role="button" class="dropdown-toggle"
@@ -35,7 +35,7 @@
                                 <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="drop3">
                                     <li><a tabindex="-1" href="#">Profil</a></li>
                                     <li class="divider"></li>
-                                    <li><a tabindex="-1" href="#">se déconnecter</a></li>
+                                    <li><a tabindex="-1" href="${createLink(controller:'auth',action:'signOut')}">se déconnecter</a></li>
                                 </ul>
                             </li>
                         </shiro:isLoggedIn>
