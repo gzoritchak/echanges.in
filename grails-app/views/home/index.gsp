@@ -24,9 +24,9 @@
                 </p>
 
                 <ul>
-                    <li>savoirs,</li>
                     <li>services,</li>
-                    <li>biens.</li>
+                    <li>biens,</li>
+                    <li>savoirs,...</li>
                 </ul>
 
                 <p>Les échanges sont <strong>locaux</strong>. Vous êtes inscrit dans un communauté locale
