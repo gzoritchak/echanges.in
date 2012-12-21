@@ -37,9 +37,9 @@
                 <strong>monnaie locale</strong> et virtuelle.</p>
 
                 <p>
-                    Si votre monnaie s’appelle le souffle, par exemple, ce sera 3 souffles pour emprunter un DVD.
-                    En aidant un voisin à charger son camion vous récupérerez 10 souffles. Un autre vous apprend à
-                    installer un blog, vous lui transférez 15 souffles. Le site echanges.in tient les comptes.</p>
+                    Si votre monnaie s’appelle le <em>sol violette</em>, par exemple, ce sera 3 sols pour emprunter un DVD.
+                    En aidant un voisin à charger son camion vous récupérerez 10 sols. Un autre vous apprend à
+                    installer un blog, vous lui transférez 15 sols. Le site echanges.in tient les comptes.</p>
             </div>
         </div>
 

@@ -1,5 +1,6 @@
 package org.echangesin
 
+import org.apache.shiro.SecurityUtils
 import org.springframework.dao.DataIntegrityViolationException
 
 class UserController {
@@ -39,6 +40,13 @@ class UserController {
         }
 
         [userInstance: userInstance]
+    }
+
+    /**
+     * Édition du profil courant
+     */
+    def profil(){
+        redirect(action: "edit", id: SecurityUtils.subject.id)
     }
 
     def edit(Long id) {

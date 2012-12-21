@@ -33,7 +33,7 @@
                                 <a href="#" id="drop3" role="button" class="dropdown-toggle"
                                    data-toggle="dropdown">Gaetan Z<b class="caret"></b></a>
                                 <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="drop3">
-                                    <li><a tabindex="-1" href="#">Profil</a></li>
+                                    <li><a tabindex="-1" href="${createLink(controller:'user',action:'profil')}">Profil</a></li>
                                     <li class="divider"></li>
                                     <li><a tabindex="-1" href="${createLink(controller:'auth',action:'signOut')}">se déconnecter</a></li>
                                 </ul>

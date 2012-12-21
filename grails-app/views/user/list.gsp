@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta name="layout" content="main">
+		<meta name="layout" content="2cols">
 		<g:set var="entityName" value="${message(code: 'user.label', default: 'User')}" />
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
 	</head>
@@ -30,10 +30,7 @@
 					
 						<th><g:message code="user.communaute.label" default="Communaute" /></th>
 					
-						<g:sortableColumn property="passwordHash" title="${message(code: 'user.passwordHash.label', default: 'Password Hash')}" />
-					
-						<g:sortableColumn property="passwordSalt" title="${message(code: 'user.passwordSalt.label', default: 'Password Salt')}" />
-					
+
 					</tr>
 				</thead>
 				<tbody>
@@ -44,12 +41,8 @@
 					
 						<td>${fieldValue(bean: userInstance, field: "mail")}</td>
 					
-						<td>${fieldValue(bean: userInstance, field: "communaute")}</td>
-					
-						<td>${fieldValue(bean: userInstance, field: "passwordHash")}</td>
-					
-						<td>${fieldValue(bean: userInstance, field: "passwordSalt")}</td>
-					
+						<td>${fieldValue(bean: userInstance, field: "communaute.nom")}</td>
+
 					</tr>
 				</g:each>
 				</tbody>
