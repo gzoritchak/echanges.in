@@ -1,122 +1,53 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta name="layout" content="main"/>
-		<title>Welcome to Grails</title>
-		<style type="text/css" media="screen">
-			#status {
-				background-color: #eee;
-				border: .2em solid #fff;
-				margin: 2em 2em 1em;
-				padding: 1em;
-				width: 12em;
-				float: left;
-				-moz-box-shadow: 0px 0px 1.25em #ccc;
-				-webkit-box-shadow: 0px 0px 1.25em #ccc;
-				box-shadow: 0px 0px 1.25em #ccc;
-				-moz-border-radius: 0.6em;
-				-webkit-border-radius: 0.6em;
-				border-radius: 0.6em;
-			}
+<head>
+    <meta name="layout" content="2cols"/>
+    <title>Échanges In</title>
+</head>
 
-			.ie6 #status {
-				display: inline; /* float double margin fix http://www.positioniseverything.net/explorer/doubled-margin.html */
-			}
+<body>
+<div class="container index">
+    <div class="row">
+        <div id="echangesin-text" class="span12">
+            <h2><em>Échanges In</em> vous permet d'échanger localement <br>
+                des livres, des films, des coups de mains, et plein d'autres choses...</h2>
+        </div>
+    </div>
 
-			#status ul {
-				font-size: 0.9em;
-				list-style-type: none;
-				margin-bottom: 0.6em;
-				padding: 0;
-			}
-            
-			#status li {
-				line-height: 1.3;
-			}
+    <div class="row">
+        <div class="span9">
+            <div class="portlet">
+                <h1>Une Communauté d'Échanges</h1>
 
-			#status h1 {
-				text-transform: uppercase;
-				font-size: 1.1em;
-				margin: 0 0 0.3em;
-			}
+                <p>
+                    Echanges.in est un site d’échanges de :
+                </p>
 
-			#page-body {
-				margin: 2em 1em 1.25em 18em;
-			}
+                <ul>
+                    <li>savoirs,</li>
+                    <li>services,</li>
+                    <li>biens.</li>
+                </ul>
 
-			h2 {
-				margin-top: 1em;
-				margin-bottom: 0.3em;
-				font-size: 1em;
-			}
+                <p><strong>Adieux les euros</strong>, les échanges s'appuie sur une
+                <strong>monnaie locale</strong> et virtuelle.</p>
 
-			p {
-				line-height: 1.5;
-				margin: 0.25em 0;
-			}
+                <p>
+                    Si votre monnaie s’appelle le souffle, par exemple, ce sera 3 souffles pour emprunter un DVD.
+                    En aidant un voisin à charger son camion vous récupérerez 10 souffles. Un autre vous apprend à
+                    installer un blog, vous lui transférez 15 souffles. Le site echanges.in tient les comptes.</p>
+            </div>
+        </div>
 
-			#controller-list ul {
-				list-style-position: inside;
-			}
-
-			#controller-list li {
-				line-height: 1.3;
-				list-style-position: inside;
-				margin: 0.25em 0;
-			}
-
-			@media screen and (max-width: 480px) {
-				#status {
-					display: none;
-				}
-
-				#page-body {
-					margin: 0 1em 1em;
-				}
-
-				#page-body h1 {
-					margin-top: 0;
-				}
-			}
-		</style>
-	</head>
-	<body>
-		<a href="#page-body" class="skip"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		<div id="status" role="complementary">
-			<h1>Application Status</h1>
-			<ul>
-				<li>App version: <g:meta name="app.version"/></li>
-				<li>Grails version: <g:meta name="app.grails.version"/></li>
-				<li>Groovy version: ${org.codehaus.groovy.runtime.InvokerHelper.getVersion()}</li>
-				<li>JVM version: ${System.getProperty('java.version')}</li>
-				<li>Reloading active: ${grails.util.Environment.reloadingAgentEnabled}</li>
-				<li>Controllers: ${grailsApplication.controllerClasses.size()}</li>
-				<li>Domains: ${grailsApplication.domainClasses.size()}</li>
-				<li>Services: ${grailsApplication.serviceClasses.size()}</li>
-				<li>Tag Libraries: ${grailsApplication.tagLibClasses.size()}</li>
-			</ul>
-			<h1>Installed Plugins</h1>
-			<ul>
-				<g:each var="plugin" in="${applicationContext.getBean('pluginManager').allPlugins}">
-					<li>${plugin.name} - ${plugin.version}</li>
-				</g:each>
-			</ul>
-		</div>
-		<div id="page-body" role="main">
-			<h1>Welcome to Grails</h1>
-			<p>Congratulations, you have successfully started your first Grails application! At the moment
-			   this is the default page, feel free to modify it to either redirect to a controller or display whatever
-			   content you may choose. Below is a list of controllers that are currently deployed in this application,
-			   click on each to execute its default action:</p>
-
-			<div id="controller-list" role="navigation">
-				<h2>Available Controllers:</h2>
-				<ul>
-					<g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
-						<li class="controller"><g:link controller="${c.logicalPropertyName}">${c.fullName}</g:link></li>
-					</g:each>
-				</ul>
-			</div>
-		</div>
-	</body>
+        <div id="actions" class="span3">
+            <a class="btn btn-large btn-success input-block-level">
+                Créer <br>une communauté
+            </a>
+            <a class="btn btn-large input-block-level">
+                Participer<br>à  une communauté
+            </a>
+        </div>
+    </div>
+</div>
+</body>
 </html>
