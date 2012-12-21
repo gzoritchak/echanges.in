@@ -1,6 +1,8 @@
 class UrlMappings {
 
 	static mappings = {
+
+
         "/$communaute/admin"		(controller: "")
 		"/$controller/$action?/$id?"{
 			constraints {
@@ -8,8 +10,8 @@ class UrlMappings {
 			}
 		}
 
-		"/system"(view:"/system")
-		"/"(view:"/index")
-		"500"(view:'/error')
-	}
+        "/system"(view:"/system")
+        "/"(controller:'home',action:'index')
+        "500"(view:'/error')
+    }
 }

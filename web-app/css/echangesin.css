@@ -3614,11 +3614,15 @@ input[type="submit"].btn.btn-mini {
 .affix {
   position: fixed;
 }
-.header-title {
+a.header-title {
   color: #ffffff;
   font-size: 200%;
   font-style: italic;
   font-weight: bold;
+  text-decoration: none;
+}
+a.header-title:hover {
+  color: #ffffff;
 }
 .moto {
   margin-top: 0;

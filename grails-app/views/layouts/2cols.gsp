@@ -21,7 +21,7 @@
         <div class="container">
             <div class="row">
                 <div class="navbar-text span7">
-                    <span class="header-title">Echanges In</span>
+                    <a href="${createLink(controller:'home',action:'index')}" class="header-title">Echanges In</a>
                     <span class="sel-name">${communaute?.name}</span>
                     <h4 class="moto">Moteur de communautés d'échanges</h4>
                 </div>

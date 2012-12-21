@@ -1,10 +1,15 @@
+package org.echangesin
+
 import org.apache.shiro.SecurityUtils
 import org.apache.shiro.authc.AuthenticationException
 import org.apache.shiro.authc.UsernamePasswordToken
-import org.apache.shiro.web.util.SavedRequest
-import org.apache.shiro.web.util.WebUtils
 import org.apache.shiro.grails.ConfigUtils
+import org.apache.shiro.web.util.WebUtils
 
+
+/**
+ * Gestion de sécurité, login, logout,
+ */
 class AuthController {
     def shiroSecurityManager
 
@@ -65,6 +70,9 @@ class AuthController {
         }
     }
 
+    /**
+     * Se déconnecter
+     */
     def signOut = {
         // Log the user out of the application.
         def principal = SecurityUtils.subject?.principal
@@ -79,6 +87,6 @@ class AuthController {
     }
 
     def unauthorized = {
-        render "You do not have permission to access this page."
+        render "Vous n'êtes pas autorisé à consulter cette page."
     }
 }
