@@ -13,7 +13,6 @@ class UserTests {
     void testSomething() {
         def user = new User()
         assertFalse user.validate()
-
         user.mail
     }
 }
