@@ -8,7 +8,7 @@ import org.echangesin.User
  */
 class ShiroSecurityFilters {
 
-//    def dependsOn = [CommunauteFilters]
+    def dependsOn = [CommunauteFilters]
 
     def filters = {
 
