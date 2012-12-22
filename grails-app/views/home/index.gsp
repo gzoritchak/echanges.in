@@ -33,7 +33,7 @@
                 (quartier, commune, quelques communes). Le but est de faire des échanges avec des personnes qui
                 sont géographiquement proches.</p>
 
-                <p><strong>Adieux les euros</strong>, les échanges s'appuie sur une
+                <p><strong>Adieu les euros</strong>, les échanges s'appuient sur une
                 <strong>monnaie locale</strong> et virtuelle.</p>
 
                 <p>
