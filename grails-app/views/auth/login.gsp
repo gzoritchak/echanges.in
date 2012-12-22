@@ -1,7 +1,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta name="layout" content="2cols"/>
+    <meta name="layout" content="main"/>
     <title>S'authentifier</title>
 </head>
 
@@ -19,11 +19,11 @@
                 <table>
                     <tbody>
                     <tr>
-                        <td>Username:</td>
+                        <td>Email:</td>
                         <td><input type="text" name="username" value="${username}"/></td>
                     </tr>
                     <tr>
-                        <td>Password:</td>
+                        <td>Mot de passe:</td>
                         <td><input type="password" name="password" value=""/></td>
                     </tr>
                     <tr>

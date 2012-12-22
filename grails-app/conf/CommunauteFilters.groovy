@@ -1,4 +1,4 @@
-package org.echangesin
+import org.echangesin.Communaute
 
 class CommunauteFilters {
 

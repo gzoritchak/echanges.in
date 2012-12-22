@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="layout" content="2cols"/>
+    <meta name="layout" content="main"/>
     <title>Échanges In</title>
 </head>
 
