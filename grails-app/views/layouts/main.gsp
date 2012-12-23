@@ -22,7 +22,7 @@
             <div class="row">
                 <div class="navbar-text span7">
                     <a href="${createLink(controller:'home',action:'index')}" class="header-title">Echanges In</a>
-                    <span class="sel-name">${communaute?.name}</span>
+                    <span class="sel-name">${communaute?.nom}</span>
                     <h4 class="moto">Moteur de communautés d'échanges</h4>
                 </div>
                 <div id="user-box" class="span5">
