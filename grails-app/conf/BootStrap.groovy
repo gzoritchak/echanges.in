@@ -45,6 +45,7 @@ class BootStrap {
 //                    .addToRoles(membre)
 //                    .addToRoles(adminRole)
         agnes.communaute = archamps
+
         agnes.save(flush: true, failOnError: true)
 
         def joe = User.findByMail('joe@yopmail.com') ?:

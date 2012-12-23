@@ -11,6 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="${resource(dir: 'images', file: 'favicon.ico')}" type="image/x-icon">
     <link rel="stylesheet" href="${resource(dir: 'css', file: 'echangesin.css')}" type="text/css">
+    <link rel="stylesheet" href="${resource(dir: 'css/bootstrap/img', file: 'echangesin.css')}" type="text/css">
     %{--<link rel="stylesheet" href="${resource(dir: 'css', file: 'mobile.css')}" type="text/css">--}%
     <g:layoutHead/>
     <r:layoutResources/>
@@ -53,8 +54,8 @@
 <div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
 <g:javascript library="application"/>
 <script src="${resource(dir: 'js', file: 'jquery-1.8.0.min.js')}"></script>
-<script src="${resource(dir: 'css/bootstrap/js', file: 'bootstrap-transition.js')}"></script>
-<script src="${resource(dir: 'css/bootstrap/js', file: 'bootstrap-dropdown.js')}"></script>
+<script src="${resource(dir: 'js/bootstrap', file: 'bootstrap-transition.js')}"></script>
+<script src="${resource(dir: 'js/bootstrap', file: 'bootstrap-dropdown.js')}"></script>
 
 <r:layoutResources/>
 </body>

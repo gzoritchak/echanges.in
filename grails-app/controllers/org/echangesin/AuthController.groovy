@@ -11,7 +11,6 @@ import org.apache.shiro.web.util.WebUtils
  * Gestion de sécurité, login, logout,
  */
 class AuthController {
-    def shiroSecurityManager
 
     def index = { redirect(action: "login", params: params) }
 
@@ -54,7 +53,7 @@ class AuthController {
                 redirect(uri: targetUri)
             }
         }
-        catch (AuthenticationException ex){
+        catch (AuthenticationException ignored){
             // Authentication failed, so display the appropriate message
             // on the login page.
             log.info "Authentication failure for user '${params.username}'."
