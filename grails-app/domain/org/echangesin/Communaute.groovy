@@ -1,5 +1,8 @@
 package org.echangesin
 
+/**
+ * La représentation d'une communauté, d'un SEL
+ */
 class Communaute {
 
     String nom

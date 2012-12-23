@@ -1,11 +1,24 @@
 package org.echangesin
 
 class User {
+
+    /**
+     * Le mail est également le login.
+     */
     String mail
+
+    /**
+     * Le username est le nom affiché. Il peut être changé.
+     */
     String username
+
+
     String passwordHash
     byte[] passwordSalt
 
+    /**
+     * La communauté à laquelle l'utilisateur est rattaché.
+     */
     Communaute communaute
 
     /**

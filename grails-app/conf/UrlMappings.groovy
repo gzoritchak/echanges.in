@@ -2,8 +2,9 @@ class UrlMappings {
 
 	static mappings = {
 
+        "/$communauteNom/"    (controller: 'communaute', action: 'index')
+        "/$communauteNom/admin"		(controller: "")
 
-        "/$communaute/admin"		(controller: "")
 		"/$controller/$action?/$id?"{
 			constraints {
 				// apply constraints here

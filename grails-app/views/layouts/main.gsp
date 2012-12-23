@@ -31,7 +31,7 @@
                         <shiro:isLoggedIn>
                             <li class="dropdown">
                                 <a href="#" id="drop3" role="button" class="dropdown-toggle"
-                                   data-toggle="dropdown">Gaetan Z<b class="caret"></b></a>
+                                   data-toggle="dropdown">${request.user.username}<b class="caret"></b></a>
                                 <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="drop3">
                                     <li><a tabindex="-1" href="${createLink(controller:'user',action:'profil')}">Profil</a></li>
                                     <li class="divider"></li>

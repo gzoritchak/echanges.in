@@ -3,6 +3,7 @@ package org.echangesin
 import org.apache.shiro.SecurityUtils
 import org.apache.shiro.authc.AuthenticationException
 import org.apache.shiro.authc.UsernamePasswordToken
+import org.apache.shiro.grails.ConfigUtils
 import org.apache.shiro.web.util.WebUtils
 
 
@@ -44,7 +45,14 @@ class AuthController {
             SecurityUtils.subject.login(authToken)
 
             log.info "Redirecting to '${targetUri}'."
-            redirect(uri: targetUri)
+
+            User user = User.findByMail((String)SecurityUtils.subject.getPrincipal())
+
+            if (!params.targetUri && user.communaute){
+                redirect(controller: 'communaute', action: 'index', params: [communauteNom:user.communaute.nom])
+            }else{
+                redirect(uri: targetUri)
+            }
         }
         catch (AuthenticationException ex){
             // Authentication failed, so display the appropriate message
