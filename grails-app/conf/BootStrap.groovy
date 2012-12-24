@@ -12,50 +12,34 @@ import org.echangesin.AccessType
  */
 class BootStrap {
 
-    def shiroSecurityService
-
-    def init = { servletContext ->
-
-        def archamps = Communaute.findByNom("archamps")?: new Communaute(nom: "archamps").save(failOnError: true)
-
+    def createAdminArchamps(String mail) {
+        def archamps = Communaute.findByNom("archamps") ?: new Communaute(nom: "archamps").save(failOnError: true)
         def passwordSalt = new SecureRandomNumberGenerator().nextBytes().getBytes()
-
-        def admin = User.findByMail("g.zoritchak@gmail.com")?:
-            new User(mail: "g.zoritchak@gmail.com",
-                    username: "Gaetan",
-                    passwordHash: new Sha512Hash("pass",passwordSalt,1024).toBase64(),
+        def admin = User.findByMail(mail) ?:
+            new User(mail: mail,
+                    username: mail,
+                    passwordHash: new Sha512Hash("pass", passwordSalt, 1024).toBase64(),
                     passwordSalt: passwordSalt)
                     .save(failOnError: true)
 
         Permission superPermission = Permission.findByCommunauteAndAccessTypeAndDomainAndCommunaute(
-                null, AccessType.ADMIN, '*', null)?: new Permission(accessType: AccessType.ADMIN, domain: '*')
+                null, AccessType.ADMIN, '*', null) ?: new Permission(accessType: AccessType.ADMIN, domain: '*')
                 .save(failOnError: true, flush: true)
 
-
         //le cas échéant, on affecte la permission à l'utilisateur
-        UserPermission.findByUserAndPermission(admin, superPermission)?:
+        UserPermission.findByUserAndPermission(admin, superPermission) ?:
             new UserPermission(user: admin, permission: superPermission)
                     .save(failOnError: true, flush: true)
 
-        def agnes = User.findByMail('agnes.crepet@gmail.com') ?:
-            new User(mail: 'agnes.crepet@gmail.com',
-                    username: "agnes",
-                    passwordHash: new Sha512Hash("pass",passwordSalt,1024).toBase64(),
-                    passwordSalt:passwordSalt)
-//                    .addToRoles(membre)
-//                    .addToRoles(adminRole)
-        agnes.communaute = archamps
+        admin.communaute = archamps
+        admin.save(flush: true, failOnError: true)
+    }
 
-        agnes.save(flush: true, failOnError: true)
-
-        def joe = User.findByMail('joe@yopmail.com') ?:
-            new User(mail: 'joe@yopmail.com',
-                    username: "joe",
-                    passwordHash: new Sha512Hash("pass",passwordSalt,1024).toBase64(),
-                    passwordSalt:passwordSalt)
-        joe.communaute = archamps
-        joe.save(flush: true, failOnError: true)
-
+    def init = { servletContext ->
+        createAdminArchamps('agnes.crepet@gmail.com')
+        createAdminArchamps('eponty@mageos.com')
+        createAdminArchamps('g.zoritchak@gmail.com')
+        createAdminArchamps('cyril.lacote@gmail.com')
     }
     def destroy = {
     }
