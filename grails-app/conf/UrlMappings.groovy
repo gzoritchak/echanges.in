@@ -2,8 +2,8 @@ class UrlMappings {
 
 	static mappings = {
 
-        "/$communauteNom/"                  (controller: 'communaute', action: 'index')
-        "/$communauteNom/inviter/$action?"  (controller: 'selInvite')
+        "/$communauteNom/"                  (controller: 'communaute')
+        "/$communauteNom/inviter/"          (controller: 'selInvite')
         "/$communauteNom/admin"		        (controller: "")
 
 		"/$controller/$action?/$id?"{
@@ -13,7 +13,7 @@ class UrlMappings {
 		}
 
         "/system"(view:"/system")
-        "/"(controller:'home',action:'index')
+        "/"(controller:'home')
         "500"(view:'/error')
     }
 }
