@@ -4,6 +4,7 @@ out/
 classes/
 *.iml
 target/
+grails-app/conf/DataSource.groovy
 .idea/
 #ignore thumbnails created by windows
 Thumbs.db
