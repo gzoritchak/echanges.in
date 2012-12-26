@@ -1,8 +1,12 @@
 <div class="actions">
     <h4>${request.communaute.nom}</h4>
     <ul class="nav nav-list">
-        <li class="active"><a href="${createLink(controller: 'communaute', params: [communauteNom:user.communaute.nom])}"><i class="icon-home icon-white"></i> Actualités</a></li>
-        <li><a href="${createLink(controller:'selInvite',params: [communauteNom:request.communaute.nom])}"><i class="icon-glass"></i> Inviter des membres</a></li>
+        <g:set var="current" value="${request.forwardURI}" />
+        <g:set var="actu" value="${createLink(controller: 'communaute', params: [communauteNom:user.communaute.nom])}" />
+        <g:set var="invit" value="${createLink(controller: 'selInvite', params: [communauteNom:user.communaute.nom])}" />
+
+        <li <g:if test="${current == actu}" >class="active"</g:if> ><a href="${actu}"><i class="icon-home <g:if test="${current == actu}" >icon-white</g:if>"></i> Actualités</a></li>
+        <li <g:if test="${current == invit}" >class="active"</g:if> ><a href="${invit}"><i class="icon-glass <g:if test="${current == invit}" >icon-white</g:if>"></i> Inviter des membres</a></li>
         <li><a href="#"><i class="icon-user"></i> Voir tous les membres</a></li>
         <li><a href="#"><i class="icon-envelope"></i> Envoyer un message</a></li>
     </ul>
