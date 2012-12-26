@@ -16,7 +16,7 @@ environments {
             dbCreate = "update"
             driverClassName = "org.postgresql.Driver"
             url = "jdbc:postgresql://localhost:5432/echangesin"
-            hibernate.default_schema = "public"
+	    hibernate.default_schema = "public"
             dialect = org.hibernate.dialect.PostgreSQLDialect
             pooled = true
             }
