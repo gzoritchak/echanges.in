@@ -5,8 +5,8 @@ class CommunauteFilters {
     def filters = {
         all(controller:'*', action:'*') {
             before = {
-                if(params.communauteNom){
-                    request.communaute = Communaute.findByNom(params.communauteNom)
+                if(params.communauteCode){
+                    request.communaute = Communaute.findByCode(params.communauteCode)
                 }
 
             }

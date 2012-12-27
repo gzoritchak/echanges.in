@@ -13,7 +13,7 @@ import org.echangesin.AccessType
 class BootStrap {
 
     def createAdminArchamps(String mail) {
-        def archamps = Communaute.findByNom("archamps") ?: new Communaute(nom: "archamps").save(failOnError: true)
+        def archamps = Communaute.findByCode("archamps") ?: new Communaute(nom: "Archamps").save(failOnError: true)
         def passwordSalt = new SecureRandomNumberGenerator().nextBytes().getBytes()
         def admin = User.findByMail(mail) ?:
             new User(mail: mail,

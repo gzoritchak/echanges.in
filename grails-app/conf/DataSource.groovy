@@ -1,8 +1,11 @@
 dataSource {
-    pooled = true
     driverClassName = "org.postgresql.Driver"
     username = "echangesin"
     password = "echangesin"
+    url = "jdbc:postgresql://localhost:5432/echangesin"
+    dialect = org.hibernate.dialect.PostgreSQLDialect
+    hibernate.default_schema = "public"
+    pooled = true
 }
 hibernate {
     cache.use_second_level_cache = true
@@ -11,32 +14,25 @@ hibernate {
 }
 // environment specific settings
 environments {
+    production {
+        dataSource {
+//            dbCreate = "validate"
+        }
+    }
     development {
         dataSource {
-            dbCreate = "update"
-            driverClassName = "org.postgresql.Driver"
-            url = "jdbc:postgresql://localhost:5432/echangesin"
-	    hibernate.default_schema = "public"
-            dialect = org.hibernate.dialect.PostgreSQLDialect
-            pooled = true
+//            dbCreate = "validate"
+//            dbCreate = "update"
             }
     }
     test {
         dataSource {
+            driverClassName = "org.h2.Driver"
+            username = "sa"
+            password = ""
             dbCreate = "create-drop"
-            hibernate.default_schema = "public"
-            dialect = org.hibernate.dialect.PostgreSQLDialect
-            pooled = true
-        }
-    }
-    production {
-        dataSource {
-            dbCreate = "update"
-            driverClassName = "org.postgresql.Driver"
-            url = "jdbc:postgresql://localhost:5432/echangesin"
-            hibernate.default_schema = "public"
-            dialect = org.hibernate.dialect.PostgreSQLDialect
-            pooled = true
+            url = "jdbc:h2:mem:testDb"
+            pooled = false
         }
     }
 }

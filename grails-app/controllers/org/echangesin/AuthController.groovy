@@ -48,7 +48,7 @@ class AuthController {
             User user = User.findByMail((String)SecurityUtils.subject.getPrincipal())
 
             if (!params.targetUri && user.communaute){
-                redirect(controller: 'communaute', action: 'index', params: [communauteNom:user.communaute.nom])
+                redirect(controller: 'communaute', action: 'index', params: [communauteCode:user.communaute.code])
             }else{
                 redirect(uri: targetUri)
             }
