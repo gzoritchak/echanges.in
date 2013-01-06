@@ -26,7 +26,8 @@ class UserController {
             return
         }
 
-        flash.message = message(code: 'default.created.message', args: [message(code: 'user.label', default: 'User'), userInstance.id])
+        flash.message = message(code: 'default.created.message', args: [message(code: 'user.label', default: 'User'),
+                userInstance.id])
         redirect(action: "show", id: userInstance.id)
     }
 
@@ -44,7 +45,7 @@ class UserController {
     /**
      * Édition du profil courant
      */
-    def profil(){
+    def profil() {
         redirect(action: "edit", id: request.user.id)
     }
 
@@ -84,7 +85,8 @@ class UserController {
             return
         }
 
-        flash.message = message(code: 'default.updated.message', args: [message(code: 'user.label', default: 'User'), userInstance.id])
+        flash.message = message(code: 'default.updated.message',
+                args: [message(code: 'user.label', default: 'Membre'), userInstance.id])
         redirect(action: "show", id: userInstance.id)
     }
 
