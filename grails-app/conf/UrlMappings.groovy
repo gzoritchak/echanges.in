@@ -12,6 +12,7 @@ class UrlMappings {
 			}
 		}
 
+        "/faq"(view:"/faq/index")
         "/system"(view:"/system")
         "/"(controller:'home')
         "500"(view:'/error')
