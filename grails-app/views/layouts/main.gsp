@@ -54,6 +54,8 @@
 <script src="${resource(dir: 'js', file: 'jquery-1.8.0.min.js')}"></script>
 <script src="${resource(dir: 'js/bootstrap', file: 'bootstrap-transition.js')}"></script>
 <script src="${resource(dir: 'js/bootstrap', file: 'bootstrap-dropdown.js')}"></script>
+<script src="${resource(dir: 'js/bootstrap', file: 'bootstrap-tooltip.js')}"></script>
+<script src="${resource(dir: 'js/bootstrap', file: 'bootstrap-popover.js')}"></script>
 
 <r:layoutResources/>
 </body>
