@@ -16,6 +16,9 @@
                 <h2>Créer une communauté</h2>
                 <p><em>Le site étant en cours de développement, il n'est pas possible de créer une communauté pour
                 le moment.</em></p>
+                <h2>Participer à une communauté</h2>
+                <p><em>Le site étant en cours de développement, il n'est pas possible de s'inscrire pour participer à
+                une communauté pour le moment.</em></p>
                 <p>
                 </p>
             </div>

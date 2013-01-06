@@ -47,7 +47,7 @@
             <a class="btn btn-large btn-success input-block-level" href="faq">
                 Créer <br>une communauté
             </a>
-            <a class="btn btn-large input-block-level">
+            <a class="btn btn-large input-block-level" href="faq">
                 Participer<br>à  une communauté
             </a>
         </div>
