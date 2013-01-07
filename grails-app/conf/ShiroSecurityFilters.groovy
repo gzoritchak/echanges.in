@@ -14,8 +14,9 @@ class ShiroSecurityFilters {
 
         allURIs(uri: '/**') {
             before = {
-                if (SecurityUtils.subject.isAuthenticated())
+                if (SecurityUtils.subject.isAuthenticated()){
                     request.user = User.findByMail(SecurityUtils.subject.getPrincipal() as String)
+                }
             }
         }
 

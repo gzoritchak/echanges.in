@@ -2,9 +2,9 @@ class UrlMappings {
 
 	static mappings = {
 
-        "/$communauteCode/"                  (controller: 'communaute')
-        "/$communauteCode/inviter/"          (controller: 'selInvite')
-        "/$communauteCode/admin"		     (controller: "")
+        "/$communauteCode/"                                 (controller: 'communaute')
+        "/$communauteCode/inviter/$action?/$id?"            (controller: 'selInvite')
+        "/$communauteCode/admin"		                    (controller: "")
 
 		"/$controller/$action?/$id?"{
 			constraints {

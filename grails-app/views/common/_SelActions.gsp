@@ -1,5 +1,5 @@
 <div class="actions">
-    <h4>${request.communaute.nom}</h4>
+    <h4>${communaute?.nom}</h4>
     <ul class="nav nav-list">
         <g:set var="current" value="${request.forwardURI}" />
         <g:set var="actu" value="${createLink(controller: 'communaute', params: [communauteCode:user.communaute.code])}" />
