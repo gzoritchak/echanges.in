@@ -1,8 +1,9 @@
 <g:applyLayout name="sel">
     <h1>Inviter des membres</h1>
-
     <g:if test="${flash.message}">
-        <div class="message" role="status">${flash.message}</div>
+        <div class="message alert alert-success" role="status">
+            ${flash.message}
+        </div>
     </g:if>
     <g:form action="send" enctype="multipart/form-data">
         <fieldset class="form">
