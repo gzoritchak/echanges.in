@@ -36,13 +36,17 @@ ${request.user.username}
         def recipients = [params.email1, params.email2, params.email3, params.email4 , params.email5 , params.email6 ,
                 params.email7 , params.email8 , params.email9 , params.email10].findAll{!it.isEmpty()}
 
-        mailService.sendMail {
-           from request.user.mail
-           bcc recipients
-           subject params.title
-           text params.message
+        if(!recipients.isEmpty())
+            flash.message = "L'email a été envoyé"
+        recipients.each { mail ->
+            mailService.sendMail {
+                from request.user.mail
+                to mail
+                subject params.title
+                text params.message
+            }
         }
-        flash.message = "L'email a été envoyé"
+
         redirect(action: "index", params: [communauteCode: request.user.communaute.code])
     }
 }
