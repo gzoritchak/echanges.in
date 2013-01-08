@@ -25,22 +25,9 @@
                 <div class="span5">
                     <label>Objet du message</label>
                     <g:textField name="title" placeholder="Titre du message" alt="Titre du message"
-                                 value="Invitation à échanger"/>
+                                 value="${title}"/>
                     <g:textArea name="message" rows="13" class="span5" cols="20"
-                                value="Bonjour,
-
-Je participe à la mise en place d'un réseau local d'échange.
-
-Le principe est simple : échanger localement des coups de mains, des savoirs, se prêter des livres, des films, des outils,... en utilisant une monnaie d'échanges locale.
-
-Si cela vous intéresse, vous aurez plus d'informations en vous connectant sur notre site internet : http://echanges.in/archamps
-
-Cela ne vous engage à rien, et je serai là pour répondre à toutes vos questions.
-
-A très bientôt,
-
-Gaetan
-"/>
+                                value="${message}"/>
                     <g:submitButton name="create" class="save btn btn-success"
                                     value="Envoyer l'email"/>
 
