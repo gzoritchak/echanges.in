@@ -62,8 +62,9 @@ grails.hibernate.cache.queries = false
 environments {
     production {
         grails.logging.jul.usebridge = false
-        // TODO: grails.serverURL = "http://www.changeme.com"
+        grails.serverURL = "http://echanges.in"
         greenmail.disabled=true
+        grails.mail.jndiName = "mail/GmailSMTPServer"
     }
     development {
         grails.logging.jul.usebridge = true
