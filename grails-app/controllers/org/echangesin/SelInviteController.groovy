@@ -33,9 +33,12 @@ ${request.user.username}
      * Envoi de l'email aux destinataires
      */
     def send() {
+        def recipients = [params.email1, params.email2, params.email3, params.email4 , params.email5 , params.email6 ,
+                params.email7 , params.email8 , params.email9 , params.email10].findAll{!it.isEmpty()}
+
         mailService.sendMail {
            from request.user.mail
-           bcc params.email1, params.email2, params.email3, params.email4 , params.email5 , params.email6 , params.email7 , params.email8 , params.email9 , params.email10
+           bcc recipients
            subject params.title
            text params.message
         }
