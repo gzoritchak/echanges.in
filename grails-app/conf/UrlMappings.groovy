@@ -4,6 +4,7 @@ class UrlMappings {
 
         "/$communauteCode/"                                 (controller: 'communaute')
         "/$communauteCode/inviter/$action?/$id?"            (controller: 'selInvite')
+        "/$communauteCode/membres/$action?/$id?"            (controller: 'communauteUser')
         "/$communauteCode/admin"		                    (controller: "")
 
 		"/$controller/$action?/$id?"{

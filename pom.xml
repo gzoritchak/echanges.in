@@ -60,7 +60,6 @@
             <type>zip</type>
         </dependency>
 
-
         <dependency>
             <groupId>org.grails.plugins</groupId>
             <artifactId>shiro</artifactId>
@@ -68,7 +67,13 @@
             <scope>runtime</scope>
             <type>zip</type>
         </dependency>
-
+        <dependency>
+            <groupId>org.grails.plugins</groupId>
+            <artifactId>avatar</artifactId>
+            <version>0.6.3</version>
+            <scope>runtime</scope>
+            <type>zip</type>
+        </dependency>
 
         <dependency>
             <groupId>org.grails.plugins</groupId>
