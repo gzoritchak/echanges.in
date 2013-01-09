@@ -90,6 +90,15 @@
             </exclusions>
             <type>zip</type>
         </dependency>
+
+
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>1.4.3</version>
+            <scope>provided</scope>
+        </dependency>
+
         <dependency>
             <groupId>org.grails.plugins</groupId>
             <artifactId>greenmail</artifactId>
