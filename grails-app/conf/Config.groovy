@@ -64,7 +64,7 @@ environments {
         grails.logging.jul.usebridge = false
         grails.serverURL = "http://echanges.in"
         greenmail.disabled=true
-        grails.mail.jndiName = "GmailSMTPServer"
+        grails.mail.jndiName = "java:/comp/env/GmailSMTPServer"
     }
     development {
         grails.logging.jul.usebridge = true
