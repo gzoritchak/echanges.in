@@ -82,6 +82,12 @@
             <artifactId>mail</artifactId>
             <version>1.0.1</version>
             <scope>runtime</scope>
+            <exclusions>
+                <exclusion>
+                    <artifactId>mail</artifactId>
+                    <groupId>javax.mail</groupId>
+                </exclusion>
+            </exclusions>
             <type>zip</type>
         </dependency>
         <dependency>
@@ -89,6 +95,12 @@
             <artifactId>greenmail</artifactId>
             <version>1.3.3</version>
             <scope>runtime</scope>
+            <exclusions>
+                <exclusion>
+                    <artifactId>mail</artifactId>
+                    <groupId>javax.mail</groupId>
+                </exclusion>
+            </exclusions>
             <type>zip</type>
         </dependency>
 
