@@ -14,27 +14,33 @@
     <g:layoutHead/>
     <r:layoutResources/>
 </head>
+
 <body>
 <div class="navbar-static-top navbar-inverse">
     <div class="navbar-inner">
         <div class="container">
             <div class="row">
                 <div class="navbar-text span7">
-                    <a href="${createLink(controller:'home',action:'index')}" class="header-title">Echanges In</a>
+                    <a href="${createLink(controller: 'home', action: 'index')}" class="header-title">Echanges In</a>
                     <span class="sel-name">${communaute?.nom}</span>
                     <h4 class="moto">C'est meilleur avec du SEL</h4>
                 </div>
+
                 <div id="user-box" class="span5">
                     <ul class="nav navbar pull-right">
-                        <shiro:isNotLoggedIn><li><a href="${createLink(controller:'auth')}">Se connecter</a></li></shiro:isNotLoggedIn>
+                        <shiro:isNotLoggedIn><li><a href="${createLink(controller: 'auth')}">Se connecter</a>
+                        </li></shiro:isNotLoggedIn>
                         <shiro:isLoggedIn>
                             <li class="dropdown">
                                 <a href="#" id="drop3" role="button" class="dropdown-toggle"
                                    data-toggle="dropdown">${request.user.username}<b class="caret"></b></a>
                                 <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="drop3">
-                                    <li><a tabindex="-1" href="${createLink(controller:'user',action:'profil')}">Profil</a></li>
+                                    <li><a tabindex="-1"
+                                           href="${createLink(controller: 'user', action: 'profil')}">Profil</a></li>
                                     <li class="divider"></li>
-                                    <li><a tabindex="-1" href="${createLink(controller:'auth',action:'signOut')}">se déconnecter</a></li>
+                                    <li><a tabindex="-1"
+                                           href="${createLink(controller: 'auth', action: 'signOut')}">se déconnecter</a>
+                                    </li>
                                 </ul>
                             </li>
                         </shiro:isLoggedIn>
@@ -47,7 +53,21 @@
 
 
 <g:layoutBody/>
-<div class="footer" role="contentinfo"></div>
+<div class="container footer">
+    <div class="row">
+        <div class="span4">
+            <a href="${createLink(controller: 'home', action: 'index')}">Accueil</a>
+        </div>
+
+        <div class="span4">
+            <a href="mailto:contact@echanges.in">Contactez-nous</a>
+        </div>
+
+        <div class="span4">
+            <a href="http://blog.echanges.in">Le Blog</a>
+        </div>
+    </div>
+</div>
 
 <div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
 <g:javascript library="application"/>

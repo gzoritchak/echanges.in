@@ -224,6 +224,18 @@ body {
 .actions h4 {
   font: "League Gothic", arial, sans-serif;
 }
+.footer {
+  border-top: #a39770 solid 1px;
+  margin-top: 40px;
+  padding-top: 20px;
+}
+.footer a {
+  color: #999;
+}
+.footer a:hover {
+  color: #666;
+  text-decoration: none;
+}
 .index #echangesin-text {
   margin-top: 40px;
 }
