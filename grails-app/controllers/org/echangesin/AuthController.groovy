@@ -84,11 +84,7 @@ class AuthController {
         def principal = SecurityUtils.subject?.principal
         SecurityUtils.subject?.logout()
         // For now, redirect back to the home page.
-        if (ConfigUtils.getCasEnable() && ConfigUtils.isFromCas(principal)) {
-            redirect(uri:ConfigUtils.getLogoutUrl())
-        }else {
-            redirect(uri: "/")
-        }
+        redirect(uri: "/")
         ConfigUtils.removePrincipal(principal)
     }
 

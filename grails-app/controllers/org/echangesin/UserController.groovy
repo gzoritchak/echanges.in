@@ -56,7 +56,6 @@ class UserController {
             redirect(action: "list")
             return
         }
-
         [userInstance: userInstance]
     }
 
