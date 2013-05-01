@@ -3,13 +3,14 @@ hibernate {
     cache.use_query_cache = false
     cache.region.factory_class = 'net.sf.ehcache.hibernate.EhCacheRegionFactory'
 }
-// environment specific settings
+
 environments {
     production {
         dataSource {
+            dbCreate = "none"
             driverClassName = "org.postgresql.Driver"
             dialect = org.hibernate.dialect.PostgreSQLDialect
-            uri = new URI(System.env.DATABASE_URL ?: "postgres://test:test@localhost/test")
+            uri = new URI(System.env.DATABASE_URL ?: "postgresql://echangesin:echangesin@localhost:5432/echangesin")
             url = "jdbc:postgresql://" + uri.host + uri.path
             username = uri.userInfo.split(":")[0]
             password = uri.userInfo.split(":")[1]
