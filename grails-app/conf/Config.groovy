@@ -107,5 +107,5 @@ log4j = {
            'net.sf.ehcache.hibernate'
 }
 
-grails.plugin.databasemigration.updateOnStart=true //mise à jour automatique de la base au démarrage.
+grails.plugin.databasemigration.updateOnStart=false //mise à jour automatique de la base au démarrage.
 grails.plugin.databasemigration.updateOnStartFileNames = ['changelog.groovy']
