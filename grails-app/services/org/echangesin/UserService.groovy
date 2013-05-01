@@ -30,5 +30,12 @@ class UserService {
         UserPermission userPermission = new UserPermission(user: user, permission: perm).save()
     }
 
+    /**
+     * Changement de mot de passe
+     */
+    def changePassword(User user, String oldPassword, String newPassword){
+
+    }
+
 
 }
