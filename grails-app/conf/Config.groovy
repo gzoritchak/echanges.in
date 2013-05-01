@@ -64,7 +64,16 @@ environments {
         grails.logging.jul.usebridge = false
 //        grails.serverURL = "http://echanges.in"
         greenmail.disabled=true
-        grails.mail.jndiName = "java:/comp/env/GmailSMTPServer"
+        grails{
+            mail{
+                host = "smtp.mandrillapp.com"
+                port = 587
+                username = System.env.MANDRILL_USERNAME
+                password = System.env.MANDRILL_PASSWORD
+                props = ["mail.smtp.starttls.enable":"true",
+                        "mail.smtp.port":"587"]
+            }
+        }
     }
     development {
         grails.logging.jul.usebridge = true
