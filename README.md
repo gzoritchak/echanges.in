@@ -48,3 +48,8 @@ S’il désire faire un échange, il se met en relation avec l’autre membre vi
 site et procède  à l’échange. L’échange est alors validé par les 2 parties et
 les comptes de chacun ajustés en fonction de la valeur de l’échange.
 
+
+Une première version du site en cours de développement est actullement déployée 
+sur heroku et disponible sur le lien [www.echanges.in](http://www.echanges.in).
+
+Nous avons également un blog : [blog.echanges.in](http://blog.echanges.in).
