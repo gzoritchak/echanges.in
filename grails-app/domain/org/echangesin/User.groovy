@@ -1,5 +1,8 @@
 package org.echangesin
 
+import org.echangesin.security.Permission
+import org.echangesin.security.UserPermission
+
 class User {
 
     /**

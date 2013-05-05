@@ -1,6 +1,7 @@
 package org.echangesin
 import grails.test.mixin.Mock
 import grails.test.mixin.TestFor
+import org.echangesin.user.UserController
 
 @TestFor(UserController)
 @Mock(User)

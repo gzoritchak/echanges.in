@@ -37,6 +37,8 @@
                                 <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="drop3">
                                     <li><a tabindex="-1"
                                            href="${createLink(controller: 'user', action: 'profil')}">Profil</a></li>
+                                    <li><a tabindex="-1"
+                                           href="${createLink(controller: 'user', action: 'password')}">Changer le mot de passe</a></li>
                                     <li class="divider"></li>
                                     <li><a tabindex="-1"
                                            href="${createLink(controller: 'auth', action: 'signOut')}">se déconnecter</a>

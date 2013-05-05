@@ -1,4 +1,4 @@
-package org.echangesin
+package org.echangesin.echanges
 
 class Service extends Echange{
 

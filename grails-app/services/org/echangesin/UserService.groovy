@@ -1,5 +1,9 @@
 package org.echangesin
 
+import org.echangesin.security.AccessType
+import org.echangesin.security.Permission
+import org.echangesin.security.UserPermission
+
 class UserService {
 
     static transactional = true

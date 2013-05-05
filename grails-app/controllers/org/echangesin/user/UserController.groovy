@@ -1,5 +1,7 @@
-package org.echangesin
+package org.echangesin.user
 
+import org.echangesin.User
+import org.echangesin.user.ChangePasswordCommand
 import org.springframework.dao.DataIntegrityViolationException
 
 class UserController {
@@ -58,6 +60,19 @@ class UserController {
         }
         [userInstance: userInstance]
     }
+    def password() {
+        redirect(action: "changePassword", id: request.user.id)
+    }
+
+    def changePassword(ChangePasswordCommand changePasswordCommand) {
+        if(changePasswordCommand.validate()){
+            log.debug("Changement mot de passe ok")
+        }else{
+            log.debug(changePasswordCommand.errors)
+        }
+    }
+
+
 
     def update(Long id, Long version) {
         def userInstance = User.get(id)

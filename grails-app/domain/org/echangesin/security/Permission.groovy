@@ -1,4 +1,6 @@
-package org.echangesin
+package org.echangesin.security
+
+import org.echangesin.Communaute
 
 /**
  * Les permissions d'échanges In.

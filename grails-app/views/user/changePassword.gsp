@@ -4,7 +4,7 @@
 <head>
     <meta name="layout" content="main">
     <g:set var="entityName" value="${message(code: 'user.label', default: 'User')}"/>
-    <title><g:message code="default.edit.label" args="[entityName]"/></title>
+    <title>Changer votre mot de passe/></title>
 </head>
 
 <body>
@@ -13,7 +13,7 @@
         <div class="span12">
 
             <div id="edit-user" class="content scaffold-edit" role="main">
-                <h1><g:message code="user.profil" /></h1>
+                <h1><g:message code="user.password" /></h1>
                 <g:if test="${flash.message}">
                     <div class="message" role="status">${flash.message}</div>
                 </g:if>
@@ -29,7 +29,30 @@
                     <g:hiddenField name="id" value="${userInstance?.id}"/>
                     <g:hiddenField name="version" value="${userInstance?.version}"/>
                     <fieldset class="form">
-                        <g:render template="form"/>
+                        <div class="fieldcontain ${hasErrors(bean: userInstance, field: 'username', 'error')} required">
+                            <label for="username">
+                                <g:message code="user.password.current" default="Mot de passe actuel" />
+                                <span class="required-indicator">*</span>
+                            </label>
+                            <g:textField name="username" required="" value="${userInstance?.username}"
+                                         rel="popover" data-placement="right"
+                                         data-original-title="Nom affiché"/>
+                        </div>
+
+                        <div class="fieldcontain ${hasErrors(bean: userInstance, field: 'mail', 'error')} required">
+                            <label for="newPass">
+                                <g:message code="user.password.new" default="Nouveau mot de passe" />
+                                <span class="required-indicator">*</span>
+                            </label>
+                            <g:field type="email" name="newPass" required="" value="${userInstance?.mail}"
+                                     rel="popover" data-placement="right"
+                                     data-original-title="Adresse mail"
+                                     />
+
+                        </div>
+
+                        <r:script> $(':input').popover({trigger:'focus'}); </r:script>
+
                     </fieldset>
                     <fieldset class="buttons">
                         <g:actionSubmit class="save" action="update"

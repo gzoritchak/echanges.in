@@ -1,4 +1,4 @@
-package org.echangesin
+package org.echangesin.security
 
 class Role {
 

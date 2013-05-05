@@ -3,6 +3,9 @@ package org.echangesin
 import grails.test.mixin.TestFor
 import grails.test.mixin.TestMixin
 import grails.test.mixin.domain.DomainClassUnitTestMixin
+import org.echangesin.security.AccessType
+import org.echangesin.security.Permission
+//import org.echangesin.Communaute
 
 /**
  * Test d'intégration sur les Permissions.

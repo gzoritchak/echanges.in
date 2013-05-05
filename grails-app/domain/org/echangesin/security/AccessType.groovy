@@ -1,4 +1,4 @@
-package org.echangesin
+package org.echangesin.security
 
 /**
  * Le type d'accès à une donnée.

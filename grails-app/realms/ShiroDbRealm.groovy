@@ -3,6 +3,7 @@ import org.apache.shiro.authc.AccountException
 import org.apache.shiro.authc.IncorrectCredentialsException
 import org.apache.shiro.authc.SimpleAccount
 import org.apache.shiro.authc.UnknownAccountException
+import org.echangesin.security.Permission
 
 /**
  * Classe centralisant les fonctions de vérification de la sécurité dont l'authentification
@@ -56,7 +57,7 @@ class ShiroDbRealm {
      */
     def isPermitted(principal, requiredPermission) {
 
-        if (requiredPermission instanceof org.echangesin.Permission) {
+        if (requiredPermission instanceof Permission) {
             def User user = User.findByMail(principal)
             return user.permissions.any {permission ->
                 permission.implies(requiredPermission)

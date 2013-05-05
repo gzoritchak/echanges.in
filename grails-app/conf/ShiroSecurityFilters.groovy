@@ -1,6 +1,6 @@
 import org.apache.shiro.SecurityUtils
-import org.echangesin.AccessType
-import org.echangesin.Permission
+import org.echangesin.security.AccessType
+import org.echangesin.security.Permission
 import org.echangesin.User
 
 /**

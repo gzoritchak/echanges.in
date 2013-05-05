@@ -1,4 +1,6 @@
-package org.echangesin
+package org.echangesin.echanges
+
+import org.echangesin.User
 
 class Echange {
 

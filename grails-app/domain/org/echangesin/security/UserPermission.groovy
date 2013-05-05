@@ -1,4 +1,6 @@
-package org.echangesin
+package org.echangesin.security
+
+import org.echangesin.User
 
 /**
  * Association entre un utilisateur et une permission
