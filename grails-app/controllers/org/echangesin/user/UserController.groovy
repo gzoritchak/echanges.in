@@ -1,7 +1,5 @@
 package org.echangesin.user
-
 import org.echangesin.User
-import org.echangesin.user.ChangePasswordCommand
 import org.springframework.dao.DataIntegrityViolationException
 
 class UserController {
@@ -51,8 +49,8 @@ class UserController {
         redirect(action: "edit", id: request.user.id)
     }
 
-    def edit(Long id) {
-        def userInstance = User.get(id)
+    def edit() {
+        def userInstance = request.user
         if (!userInstance) {
             flash.message = message(code: 'default.not.found.message', args: [message(code: 'user.label', default: 'User'), id])
             redirect(action: "list")
@@ -65,10 +63,16 @@ class UserController {
     }
 
     def changePassword(ChangePasswordCommand changePasswordCommand) {
-        if(changePasswordCommand.validate()){
-            log.debug("Changement mot de passe ok")
-        }else{
-            log.debug(changePasswordCommand.errors)
+        [changePasswordCommand: changePasswordCommand]
+    }
+
+    def changePasswordSave(ChangePasswordCommand command) {
+        if (command.hasErrors()) {
+            render(view: "changePassword", model: [changePasswordCommand: changePasswordCommand])
+        } else {
+            log.error("Changement mot de passe ok")
+            flash.message = "Votre mot de passe a bien été modifié"
+            redirect(controller: 'home')
         }
     }
 

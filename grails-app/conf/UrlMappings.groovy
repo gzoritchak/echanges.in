@@ -6,6 +6,7 @@ class UrlMappings {
         "/$communauteCode/inviter/$action?/$id?"            (controller: 'selInvite')
         "/$communauteCode/membres/$action?/$id?"            (controller: 'communauteUser')
         "/$communauteCode/admin"		                    (controller: "")
+//        "/$communauteCode/changePassword"		            (controller: 'user', action: 'changePassword')
 
 		"/$controller/$action?/$id?"{
 			constraints {
