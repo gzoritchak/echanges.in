@@ -1,4 +1,10 @@
 package org.echangesin.user
+
+import org.apache.shiro.SecurityUtils
+import org.apache.shiro.authc.AuthenticationException
+import org.apache.shiro.authc.UsernamePasswordToken
+import org.apache.shiro.crypto.SecureRandomNumberGenerator
+import org.apache.shiro.crypto.hash.Sha512Hash
 import org.echangesin.User
 import org.springframework.dao.DataIntegrityViolationException
 
@@ -52,7 +58,8 @@ class UserController {
     def edit() {
         def userInstance = request.user
         if (!userInstance) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: 'user.label', default: 'User'), id])
+            flash.message = message(code: 'default.not.found.message',
+                    args: [message(code: 'user.label', default: 'User'), id])
             redirect(action: "list")
             return
         }
@@ -63,19 +70,39 @@ class UserController {
     }
 
     def changePassword(ChangePasswordCommand changePasswordCommand) {
+        changePasswordCommand.clearErrors()
         [changePasswordCommand: changePasswordCommand]
     }
 
     def changePasswordSave(ChangePasswordCommand command) {
         if (command.hasErrors()) {
-            render(view: "changePassword", model: [changePasswordCommand: changePasswordCommand])
+            render(view: "changePassword", model: [changePasswordCommand: command])
+        } else if(incorrectPassword(command.currentPassword)) {
+            command.errors.reject("incorrectPassword")
+            render(view: "changePassword", model: [changePasswordCommand: command])
         } else {
-            log.error("Changement mot de passe ok")
+            User user = request.user
+            def salt = new SecureRandomNumberGenerator().nextBytes().getBytes()
+            user.passwordHash = new Sha512Hash(command.newPassword, salt, 1024).toBase64()
+            user.passwordSalt = salt
+            user.save(flush: true, failOnError: true)
             flash.message = "Votre mot de passe a bien été modifié"
             redirect(controller: 'home')
         }
     }
 
+    def incorrectPassword(String pass){
+
+        def authToken = new UsernamePasswordToken(request.user.mail, pass as String)
+
+        try{
+            SecurityUtils.subject.login(authToken)
+            return false
+        } catch (AuthenticationException e){
+            log.error "Authentication failure for user '${request.user.username}'."
+            return true
+        }
+    }
 
 
     def update(Long id, Long version) {

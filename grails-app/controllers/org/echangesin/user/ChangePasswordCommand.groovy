@@ -1,6 +1,8 @@
 package org.echangesin.user
 
-@grails.validation.Validateable
+import grails.validation.Validateable
+
+@Validateable
 class ChangePasswordCommand {
 
     String currentPassword
@@ -8,14 +10,8 @@ class ChangePasswordCommand {
     String confirmPassword
 
     static constraints = {
-        currentPassword (blank: false)
-        newPassword (blank: false, minSize: 6)
-        confirmPassword (blank: false, minSize: 6,
-                validator: { val, obj ->
-            if(!val?.equals(obj.confirmPassword)){
-                return "user.password.new.not.matching.confirm"
-            }
-
-        })
+        currentPassword blank: false
+        newPassword     blank: false, minSize: 6
+        confirmPassword blank: false, validator: { val, obj -> val.equals(obj.newPassword)}
     }
 }
