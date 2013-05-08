@@ -78,7 +78,7 @@ class UserController {
         if (command.hasErrors()) {
             render(view: "changePassword", model: [changePasswordCommand: command])
         } else if(incorrectPassword(command.currentPassword)) {
-            command.errors.reject("incorrectPassword")
+            command.errors.reject("Le mot de passe est invalide")
             render(view: "changePassword", model: [changePasswordCommand: command])
         } else {
             User user = request.user
